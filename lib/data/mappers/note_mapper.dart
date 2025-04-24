@@ -8,3 +8,11 @@ Note noteFromNoteModel(NoteModel noteModel) {
     content: noteModel.content,
   );
 }
+
+NoteModel noteModelFromNote(Note note) {
+  return NoteModel(
+    id: note.id,
+    title: note.title,
+    content: note.content,
+  );
+}

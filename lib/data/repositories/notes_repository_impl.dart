@@ -38,7 +38,7 @@ class NotesRepositoryImpl extends NotesRepository {
       }
       final id = Uuid().v4();
       final note = NoteModel(id: id, title: title, content: content);
-      await _notesBox!.add(note);
+      await _notesBox!.put(id, note);
       return;
     } catch (e) {
       rethrow;
@@ -51,7 +51,8 @@ class NotesRepositoryImpl extends NotesRepository {
       if (_notesBox == null) {
         throw Exception('Notes box not initialized');
       }
-      _notesBox!.delete(id);
+
+      await _notesBox!.delete(id);
       return;
     } catch (e) {
       rethrow;
@@ -59,12 +60,12 @@ class NotesRepositoryImpl extends NotesRepository {
   }
 
   @override
-  Future<void> updateNote(String id, NoteModel note) async {
+  Future<void> updateNote(String id, Note note) async {
     try {
       if (_notesBox == null) {
         throw Exception('Notes box not initialized');
       }
-      _notesBox!.put(id, note);
+      _notesBox!.put(id, noteModelFromNote(note));
       return;
     } catch (e) {
       rethrow;

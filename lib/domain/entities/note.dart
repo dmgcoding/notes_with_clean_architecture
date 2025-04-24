@@ -6,7 +6,7 @@ class Note extends Equatable {
   final String content;
 
   const Note({
-    required this.id,
+    this.id = '',
     required this.title,
     required this.content,
   });
