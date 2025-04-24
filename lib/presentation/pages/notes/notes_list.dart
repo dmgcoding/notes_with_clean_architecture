@@ -1,5 +1,4 @@
 import 'package:clean_arch_test1/app/bloc/auth_status/auth_status_cubit.dart';
-import 'package:clean_arch_test1/domain/entities/note.dart';
 import 'package:clean_arch_test1/domain/repositories/notes_repository.dart';
 import 'package:clean_arch_test1/domain/usecases/add_note_usecase.dart';
 import 'package:clean_arch_test1/domain/usecases/delete_note_usecase.dart';
