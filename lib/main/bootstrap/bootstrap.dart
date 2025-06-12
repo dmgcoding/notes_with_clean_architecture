@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-typedef AppBuilder = Future<dynamic> Function({
+typedef AppBuilder = Future<Widget> Function({
   required SharedPreferences sharedPreferences,
   required FlutterSecureStorage secureStorage,
   required HiveStorageRepository hiveStorageRepository,
@@ -18,6 +18,10 @@ typedef AppBuilder = Future<dynamic> Function({
   required NotesRepository notesRepository,
 });
 
+//bootstrap is the method that returns runApp() with error handling
+//initialize common dependencies
+//we get a builder of main App(MaterialApp) to use in bootstrap as a argument
+//that builder makes the app with dependencies specific for that flavor
 void bootstrap(AppBuilder builder) {
   return runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
